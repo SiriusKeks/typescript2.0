@@ -5,10 +5,6 @@ class Person {
     }
 }
 const anon = new Person('Serjjjj');
-const btn = document.querySelector('#btn');
-btn.addEventListener('click', () => {
-    console.log('AAaaaaaaaa!');
-});
 let anyFlag;
 const globalvar = 'message';
 function logInfo(data, _) {

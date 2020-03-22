@@ -55,3 +55,69 @@ return {
 // console.log(getObjectValue(person, 'job'))
 
 // =========
+
+class Collection<T extends number | string |  boolean> {
+    //private _items: T[] = []
+
+    constructor (private _items: T[] = []) {}
+
+    add(item: T) {
+        this._items.push(item)
+    }
+
+    remove(item: T) {
+        this._items = this._items.filter(i => i !== item)
+    }
+
+    get items(): T[] {
+        return this._items
+    }
+}
+
+// const strings = new Collection (['I', 'am', 'grooot'])
+// strings.add('!')
+// strings.remove('am')
+// console.log(strings.items)
+
+// const numbers = new Collection ([1,2,3])
+// numbers.add(5)
+// numbers.remove(2)
+// console.log(numbers.items)
+
+// const objs = new Collection ({a: 1}, {b: 2})
+// objs.remove({b: 2})
+// console.log(objs.items)
+
+// ========= обьяснение джаваскрипту о соблюдение своих же правил 
+
+interface Car {
+    model: string
+    year: number
+}
+
+function createAndValidateCar(model: string, year: number): Car {
+    const car: Partial<Car> = {}
+
+    if (model.length > 3) {
+        car.model = model
+    }
+
+    if (year > 2000) {
+        car.year = year
+    }
+
+    return car as Car
+}
+
+//// 
+
+const cars: Readonly<Array<string>> = ['Ford', 'Audi']
+// cars.shift() выдает ошибку
+// cars[1]
+
+const ford: Readonly<Car> = {
+    model: 'Ford',
+    year: 2020
+}
+
+// ford.model = 'ferrari' ошибка (дженерики это обертки для дополнительной информации о даных)

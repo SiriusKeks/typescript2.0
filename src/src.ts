@@ -7,11 +7,11 @@ const anon = new Person('Serjjjj')
 
 // Demoooo 
 
-const btn = document.querySelector('#btn')!
+// const btn = document.querySelector('#btn')!
 
-btn.addEventListener('click', () => {
-    console.log('AAaaaaaaaa!')
-})
+// btn.addEventListener('click', () => {
+//     console.log('AAaaaaaaaa!')
+// })
 
 // =======
 
